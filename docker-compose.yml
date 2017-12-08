@@ -8,8 +8,19 @@ services:
     ports:
     - 5000:5000
     volumes:
-    - /mnt/hgfs/ProjetMatos/app/src/api:/home
+    - /home/florian/Documents/ProjetMatos/app/src/api:/home
     networks:
+    - sdnet
+  mysql:
+    image: mysql
+    ports:
+    - 3306:3306
+    volumes:
+    - /home/florian/Documents/ProjetMatos/app/dist/data:/home
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=ProjetMatos
+    networks: 
     - sdnet
 networks:
   sdnet:
